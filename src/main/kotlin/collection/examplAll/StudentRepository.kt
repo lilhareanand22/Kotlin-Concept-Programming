@@ -7,20 +7,19 @@ data class Student(
 )
 
 data class Course(
-    val id: Int,
     val name: String,
     val paid: Boolean
 )
 
 /** Shared, read-only source of students for collection examples. */
 object StudentRepository {
-    private val kotlin = Course(1, "Kotlin", true)
-    private val compose = Course(2, "Compose", true)
-    private val java = Course(3, "Java", true)
-    private val KMP = Course(5, "kmp", true)
-    private val flutter = Course(6, "Flutter", true)
-    private val reactNative = Course(7, "React-Native", true)
-    private val Angular = Course(8, "Angular", false)
+    private val kotlin = Course( "Kotlin", true)
+    private val compose = Course("Compose", true)
+    private val java = Course( "Java", true)
+    private val KMP = Course( "kmp", true)
+    private val flutter = Course( "Flutter", true)
+    private val reactNative = Course("React-Native", true)
+    private val Angular = Course("Angular", false)
 
     private val students: List<Student> = listOf(
         Student(1, "Anand", listOf(kotlin, compose)),

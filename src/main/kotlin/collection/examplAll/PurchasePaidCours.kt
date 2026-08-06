@@ -17,14 +17,15 @@ Find the Top 5 Most Purchased Paid Courses.
 
 fun main() {
     val students = StudentRepository.getStudents()
-        .flatMap { it.subscribedCourses }
-        .filter { it.paid }
-        .groupingBy { it.name }
+        .flatMap { it.subscribedCourses}
+        .filter {it.paid}
+        .groupingBy {it}
         .eachCount()
         .entries
-        .sortedByDescending { it.value }
-        .take(5)
-        .associate { it.key to it.value }
+        .sortedByDescending {it.value}
+        .take(10)
+        .associateBy{it.key to it.value}
+
 
 //    val result = StudentRepository.getStudents()
 //        .flatMap { it.subscribedCourses }
@@ -37,6 +38,8 @@ fun main() {
 //        .sortedByDescending { it.value }
 //        .take(5)
 //        .associate { it.toPair() }
+
+
 
     println(students)
 }
