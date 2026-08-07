@@ -1,8 +1,6 @@
 package flow.operative.allcombine
 
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
@@ -17,5 +15,12 @@ fun main() = runBlocking {
         }
 
         .collect(::println)
+
+    println("----------------- Second Example --------")
+    flowOf(1, 2, 3, 4, 5)
+        .filter { it % 2 == 0 }      // Keep even numbers
+        .map { it * 10 }             // Transform
+        .onEach { println("After map: $it") } // Observe
+        .collect { println("Final: $it") }
 
 }
