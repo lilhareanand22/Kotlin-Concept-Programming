@@ -1,5 +1,3 @@
-package opps
-
 abstract class Animal1 {
 
     abstract fun sound()

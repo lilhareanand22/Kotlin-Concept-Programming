@@ -1,5 +1,3 @@
-package opps
-
 open class Animal {
 
     open fun sound() {
