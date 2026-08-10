@@ -110,6 +110,31 @@ For the `Debounce.kt` example, rapid `"A"`, `"An"`, `"Ana"`, and `"Anand"` emiss
 
 Place `catch` after the operators whose errors it should handle. It does not catch exceptions thrown inside the downstream `collect` block. Use `retryWhen` when retries depend on the exception type, attempt number, or a delay/backoff policy.
 
+## 9. Terminal operators
+
+Terminal operators start collecting the flow and return a final result, or run a block for the collected values.
+
+| Operator | Behaviour | Example |
+| --- | --- | --- |
+| `collectLatest` | Collects values and cancels the previous collector block when a newer value arrives. | [CollectLatest.kt](terminal/CollectLatest.kt) |
+| `first` | Returns the first emitted value, then cancels collection. | [FirstOperative.kt](terminal/FirstOperative.kt) |
+| `last` | Returns the final emitted value after the flow completes. | [LastExample.kt](terminal/LastExample.kt) |
+| `single` | Returns the only emitted value; fails if the flow emits zero or more than one value. | [SingleExample.kt](terminal/SingleExample.kt) |
+| `fold(initial)` | Combines all values with an explicit initial accumulator value. | [Fold.kt](terminal/Fold.kt) |
+| `reduce` | Combines all values using the first value as the initial accumulator. | [Reduce.kt](terminal/Reduce.kt) |
+
+```kotlin
+flowOf(1, 2, 3, 4).fold(10) { accumulator, value ->
+    accumulator + value
+} // 20
+
+flowOf(1, 2, 3, 4).reduce { accumulator, value ->
+    accumulator + value
+} // 10
+```
+
+Use `fold` when an identity or starting value is needed, such as `0` for a sum or `emptyList()` for a list. Use `reduce` only when the flow is guaranteed to emit at least one value.
+
 ## Quick selection guide
 
 | Need | Use |
@@ -124,3 +149,5 @@ Place `catch` after the operators whose errors it should handle. It does not cat
 | Wait until typing stops | `debounce` |
 | Avoid a slow collector blocking the producer | `buffer` or `conflate` |
 | Recover from an upstream failure | `catch`, `retry`, or `retryWhen` |
+| Get the first, last, or only value | `first`, `last`, or `single` |
+| Combine every value into one result | `fold` or `reduce` |
