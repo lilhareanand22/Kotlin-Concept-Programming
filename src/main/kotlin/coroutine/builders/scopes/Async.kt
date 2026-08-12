@@ -1,4 +1,4 @@
-package coroutine.builders_scopes
+package coroutine.builders.scopes
 
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
