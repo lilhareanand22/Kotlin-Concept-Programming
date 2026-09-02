@@ -9,4 +9,6 @@ fun main() = runBlocking {
     number.collect {
         println("Collect number $it")
     }
+
+
 }

@@ -3,6 +3,10 @@ package flow.operative.filter
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
+//By applying .drop(1), you tell the flow:
+//"Ignore the very first emission (the placeholder),
+//and only start listening to emissions starting from the second one onward."
+
 fun main() = runBlocking {
 
     flowOf(10,20,30,40,50)

@@ -2,6 +2,14 @@ package flow.operative.lifecycle.operators
 
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
+// Use cases
+//Logging
+//Analytics
+//Saving to a database
+//Updating metrics
+//Debugging
+//Progress tracking
+
 
 fun main() = runBlocking {
 

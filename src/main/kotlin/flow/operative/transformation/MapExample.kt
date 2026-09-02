@@ -6,10 +6,14 @@ import kotlinx.coroutines.runBlocking
 
 
 fun main() = runBlocking {
+    println("It is emiting")
      val number = flowOf(1,2,3,4,5)
-     number.map{ it*10
+     number.map{
+         println("It is transformation")
+         it*10
 
      }.collect{
+         println("It is collecting")
          println(it)
      }
 
