@@ -4,6 +4,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
+
+//By applying combine, you tell the app: "Whenever either the search query
+//changes or the category changes, grab the latest value of both,
+//merge them together, and fetch the filtered list."
+
 fun main() = runBlocking {
 
     val names = flowOf(

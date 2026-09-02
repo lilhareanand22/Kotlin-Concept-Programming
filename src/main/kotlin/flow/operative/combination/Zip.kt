@@ -4,6 +4,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
+//By applying .zip(), you tell the flows: "Wait until both flows have a new item ready,
+//pair them together using a transformation rule, and emit the combined result to the UI."
+
 fun main() = runBlocking {
 
     val names = flowOf(

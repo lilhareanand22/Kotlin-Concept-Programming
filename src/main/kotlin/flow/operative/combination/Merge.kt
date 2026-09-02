@@ -4,6 +4,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
+//By applying merge(buttonClicksFlow, gestureFlow, menuSelectionFlow), you tell the app:
+//"Treat all these separate event sources as one unified timeline stream.
+//Whenever any of them emits an action, pipe it right through."
+
 fun main() = runBlocking {
 
     val flow1 = flowOf(1, 2, 3)
