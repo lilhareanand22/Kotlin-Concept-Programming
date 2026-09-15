@@ -23,6 +23,7 @@ fun main() = runBlocking {
 }
 
 suspend fun fetchFromNetwork(apiName: String, delayTime: Long): String {
+    println("start fetch ${apiName}")
     delay(delayTime) // Simulate network latency
     return "Data from $apiName"
 }

@@ -3,6 +3,10 @@ package flow.operative.time.base
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
+
+//By applying .debounce(300) (300 milliseconds), you tell the app:
+//"Wait and see if the user stops typing. If they keep typing faster than every 300ms,
+//ignore the intermediate queries. Only fire the search request when the user pauses for at least 300ms."
 fun main() = runBlocking {
 
     flow {

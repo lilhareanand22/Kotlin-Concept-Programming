@@ -19,16 +19,19 @@ fun main() = runBlocking {
     numberFlow.collect {
         println("Collector received : $it")
     }
-
-    println("After Collect")
-
-    val programmingLanguage = flow {
-        emit("Kotlin")
-        emit("java")
-        emit("Python")
+    numberFlow.collect {
+        println("Collector received1 : $it")
     }
 
-    programmingLanguage.collect {
-        println("Collecting the language: $it")
-    }
+//    println("After Collect")
+//
+//    val programmingLanguage = flow {
+//        emit("Kotlin")
+//        emit("java")
+//        emit("Python")
+//    }
+//
+//    programmingLanguage.collect {
+//        println("Collecting the language: $it")
+//    }
 }
