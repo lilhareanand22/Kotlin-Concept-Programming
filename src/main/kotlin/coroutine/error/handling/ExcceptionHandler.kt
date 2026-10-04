@@ -21,7 +21,7 @@ fun main(): Unit = runBlocking {
     }
     delay(100.milliseconds)
 
-    launch {
+    scope.launch {
         crashyFunction("Oops! caught by the default handler")
     }
 }
