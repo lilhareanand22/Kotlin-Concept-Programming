@@ -21,3 +21,4 @@ fun calculateBill(price:Double, discountPercentage:Double) : Bill {
     val finalPrice = price * ( 1 - discountPercentage / 100)
     return Bill(price, finalPrice)
 }
+
