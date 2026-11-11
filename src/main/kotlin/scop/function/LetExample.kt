@@ -22,6 +22,7 @@ fun main() {
         println(it)
         // and more function calls if needed
     }
+    println("numbers1 value $numbers1")
 
     val str: String? = "Hello"
 //processNonNullString(str)       // compilation error: str can be null
